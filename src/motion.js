@@ -38,8 +38,6 @@ export function initMotion(services, base) {
         gsap.to('.signal-orbit.reverse', { rotation: -360, transformOrigin: '300px 300px', duration: 30, repeat: -1, ease: 'none' });
         gsap.to('.core-signal i', { scaleY: .25, duration: .5, stagger: { each: .1, repeat: -1, yoyo: true }, ease: 'sine.inOut' });
         gsap.to('.core-halo', { scale: 1.13, opacity: .35, duration: 2.5, repeat: -1, yoyo: true, ease: 'sine.inOut' });
-        gsap.to('.hero-watermark', { xPercent: 8, scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 1 } });
-        gsap.to('.ticker-track', { xPercent: -50, duration: 38, repeat: -1, ease: 'none' });
       } else {
         gsap.from('.page-intro h1, .inner-hero h1', { y: 25, opacity: 0, duration: .7, ease: 'power3.out' });
       }
@@ -82,17 +80,9 @@ export function initMotion(services, base) {
     document.querySelectorAll('[data-spoke]').forEach(p => p.classList.toggle('active', Number(p.dataset.spoke) === index));
     document.getElementById('engine-title').textContent = s.title;
     document.getElementById('engine-description').textContent = s.desc;
-    document.getElementById('engine-count').textContent = String(index + 1).padStart(2, '0') + ' / 06';
-    const list = document.getElementById('engine-capabilities');
-    list.replaceChildren(...s.items.slice(0, 3).map(item => {
-      const li = document.createElement('li');
-      li.textContent = item;
-      return li;
-    }));
     const link = document.getElementById('engine-link');
     link.href = base + 'services/' + s.slug;
     link.querySelector('span').textContent = 'Explore ' + s.short;
-    document.getElementById('engine-contact').href = base + 'contact?service=' + s.slug;
     window.dispatchEvent(new CustomEvent('itcs:service-select', { detail: { index, slug: s.slug } }));
     if (!reduced && changed) {
       gsap.fromTo('.engine-detail', { y: 5, opacity: .55 }, { y: 0, opacity: 1, duration: .22, overwrite: true });

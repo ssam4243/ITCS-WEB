@@ -16,6 +16,9 @@ const slugs = ['it-support', 'cyber-security', 'telecoms', 'networks', 'software
     page.on('pageerror', e => errors.push(e.message));
     await page.goto(origin.href);
     await page.getByRole('button', { name: 'Essential only' }).click();
+    assert.equal(await page.locator('.experience-hero [data-goal]').count(), 0);
+    assert.equal(await page.locator('.service-ticker').count(), 0);
+    assert.equal(await page.locator('.experience-hero .hero-actions .button').count(), 1);
     await page.waitForFunction(() => document.querySelector('[data-engine="5"]').getBoundingClientRect().height > 50);
     await page.evaluate(() => { window.itcsEvents = []; window.addEventListener('itcs:interaction', e => window.itcsEvents.push(e.detail)); });
 
@@ -24,7 +27,8 @@ const slugs = ['it-support', 'cyber-security', 'telecoms', 'networks', 'software
       assert.equal(await page.locator(`[data-goal="${goal}"]`).getAttribute('aria-pressed'), 'true');
       assert.equal(await page.locator(`[data-engine="${index}"]`).getAttribute('aria-pressed'), 'true');
       assert.match(await page.locator('#engine-description').innerText(), /^Start with/);
-      assert.equal(await page.locator('#engine-contact').getAttribute('href'), path('contact') + '?service=' + slugs[index]);
+      assert.equal(await page.locator('#engine-link').getAttribute('href'), path('services/' + slugs[index]));
+      assert.equal(await page.locator('#panel-link').getAttribute('href'), path('services/' + slugs[index]));
     }
     assert.equal((await page.evaluate(() => window.itcsEvents)).filter(e => e.action === 'choose-goal').length, 4);
 
@@ -32,18 +36,14 @@ const slugs = ['it-support', 'cyber-security', 'telecoms', 'networks', 'software
     for (let i = 0; i < slugs.length; i++) {
       await page.locator(`[data-engine="${i}"]`).hover();
       assert.equal(await page.locator('#engine-link').getAttribute('href'), path('services/' + slugs[i]));
-      assert.equal(await page.locator('#engine-capabilities li').count(), 3);
+      assert.ok((await page.locator('#engine-description').innerText()).length > 60);
     }
     await page.locator('[data-goal="security"]').click();
     await page.locator('#engine-link').hover();
     assert.equal(await page.locator('#engine-title').innerText(), 'Cyber security');
     assert.ok((await page.locator('#engine-readout').boundingBox()).height < 300);
-    assert.equal(await page.locator('#engine-capabilities').isVisible(), false);
-    await page.locator('.engine-more summary').click();
-    assert.equal(await page.locator('#engine-capabilities').isVisible(), true);
-    await page.locator('.engine-more summary').click();
-
     // The native-scroll narrative actually draws its connections as it progresses.
+    await page.waitForFunction(() => parseFloat(getComputedStyle(document.querySelector('.flow-connections path')).strokeDashoffset) > 1);
     const initialDash = await page.locator('.flow-connections path').first().evaluate(el => parseFloat(getComputedStyle(el).strokeDashoffset));
     assert.ok(initialDash > 0);
     await page.locator('[data-chapter="2"]').scrollIntoViewIfNeeded();

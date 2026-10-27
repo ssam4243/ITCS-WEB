@@ -80,4 +80,6 @@ Set `ITCS_TEST_URL` to test a different base URL (include its trailing slash). `
 
 The hero layout is maintained in `src/hero.css`: a balanced two-column introduction and service explorer, with the orbit and compact preview grouped as one module. The left column has a primary enquiry action and quiet priority links.
 
-The selected service now appears as a borderless caption beneath the orbit. Its name, explanation and service-page link stay visible; a native “What’s included” disclosure reveals capabilities and the contextual enquiry link.
+The selected service now appears as a borderless caption beneath the orbit. Its name, explanation and service-page link stay visible; full capabilities and contextual enquiry actions are on the service page.
+
+The banner now uses one proposition, one primary enquiry action and the orbit. Business-priority choices live in the services section and update the relevant service panel. The ticker and repeated banner status labels have been removed. See [banner research and rationale](docs/research/banner-direction.md).

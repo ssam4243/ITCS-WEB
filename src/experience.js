@@ -102,7 +102,9 @@ export function initExperience(services, base) {
       hero.dataset.priority = goal.id;
       document.getElementById('engine-description').textContent = goal.why;
       window.dispatchEvent(new CustomEvent('itcs:interaction', { detail: { action: 'choose-goal', goal: goal.id, service: services[goal.index].slug } }));
-      if (matchMedia('(max-width: 800px)').matches) document.getElementById('engine-readout').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+      document.querySelector('[data-service="'+goal.index+'"]').click();
+      document.getElementById('panel-description').textContent=goal.why;
+      document.getElementById('expertise-panel').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
     });
   });
   on(document.getElementById('engine-contact'), 'click', () => {
