@@ -92,3 +92,9 @@ h1,h2,h3{overflow-wrap:break-word}
 @media(max-width:480px){.goal-picker{margin-top:19px}.goal-question{font-size:10px}.goal-button{font-size:10px}.flow-intro h2{font-size:35px}.flow-chapter h3{font-size:28px}.flow-endpoint text{font-size:11px}.flow-caption{gap:9px;font-size:8px}.flow-step{font-size:9px}.flow-hub span{font-size:4px}.conversation-dock>div{display:none}.conversation-dock>a{flex:1;justify-content:space-between;font-size:11px}.conversation-dock{left:12px;right:12px}.engine-core>span{font-size:4.5px;letter-spacing:.04em}.flow-narrative{padding-bottom:35px}}
 @media(prefers-reduced-motion:reduce){.flow-sticky{position:static}.story-card .story-img>span,.text-link .arrow-icon,.engine-primary .arrow-icon,.engine-secondary .arrow-icon{transition:none}}
 @media(max-width:800px),(prefers-reduced-motion:reduce){.flow-step{display:none}}
+/* Place the compact, informative preview directly below the orbit. */
+@media(min-width:801px){
+  .hero-grid{grid-template-areas:'copy engine' 'copy insight'}
+  .hero-grid>.experience-copy{align-self:center}
+  .hero-grid>.engine-readout{justify-self:center}
+}
