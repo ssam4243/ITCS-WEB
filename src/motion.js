@@ -67,6 +67,7 @@ export function initMotion(services, base) {
     }
   });
   // A persistent preview can be reached without crossing a disappearing tooltip.
+  let connectionTween;
   const engineButtons = [...document.querySelectorAll('[data-engine]')];
   let activeEngine = Number(document.querySelector('[data-engine].selected')?.dataset.engine ?? 0);
   const selectEngine = (button) => {
@@ -92,7 +93,15 @@ export function initMotion(services, base) {
     link.href = base + 'services/' + s.slug;
     link.querySelector('span').textContent = 'Explore ' + s.short;
     document.getElementById('engine-contact').href = base + 'contact?service=' + s.slug;
-    if (!reduced && changed) gsap.fromTo('.engine-detail', { y: 5, opacity: .55 }, { y: 0, opacity: 1, duration: .22, overwrite: true });
+    window.dispatchEvent(new CustomEvent('itcs:service-select', { detail: { index, slug: s.slug } }));
+    if (!reduced && changed) {
+      gsap.fromTo('.engine-detail', { y: 5, opacity: .55 }, { y: 0, opacity: 1, duration: .22, overwrite: true });
+      connectionTween?.kill();
+      document.querySelectorAll('[data-spoke]').forEach(p=>{p.style.strokeDasharray='';p.style.strokeDashoffset='';});
+      const path = document.querySelector('[data-spoke="' + index + '"]');
+      const length = path.getTotalLength();
+      connectionTween = gsap.fromTo(path, { strokeDasharray: length, strokeDashoffset: length }, { strokeDashoffset: 0, duration: .45, ease: 'power2.out' });
+    }
   };
   engineButtons.forEach((button, i) => {
     on(button, 'pointerenter', event => {
@@ -125,5 +134,5 @@ export function initMotion(services, base) {
   };
   tabs.forEach((b,i)=>{on(b,'click',()=>selectTab(b));on(b,'keydown',e=>{let j;if(e.key==='ArrowDown'||e.key==='ArrowRight')j=(i+1)%tabs.length;if(e.key==='ArrowUp'||e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;if(e.key==='Home')j=0;if(e.key==='End')j=tabs.length-1;if(j!==undefined){e.preventDefault();tabs[j].focus();selectTab(tabs[j]);}});});
   requestAnimationFrame(()=>ScrollTrigger.refresh());
-  return () => {controller.abort();gsap.killTweensOf('.engine-readout, .engine-detail, .panel-content, .engine-lines, .engine-core, .button');context.revert();gsap.set('.button', {clearProps:'transform'});};
+  return () => {controller.abort();connectionTween?.kill();document.querySelectorAll('[data-spoke]').forEach(p=>{p.style.strokeDasharray='';p.style.strokeDashoffset='';});gsap.killTweensOf('.engine-readout, .engine-detail, .panel-content, .engine-lines, .engine-core, .button');context.revert();gsap.set('.button', {clearProps:'transform'});};
 }
