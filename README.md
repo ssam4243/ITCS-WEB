@@ -58,3 +58,9 @@ PAGES_BASE_PATH=/ITCS-WEB/ npm run preview -- --port 4173
 ## Motion and interaction design
 
 The revised homepage uses GSAP and ScrollTrigger: character entrances, an interactive six-service connection engine, pointer-responsive graphics, animated signal paths, a scrolling service ribbon, magnetic buttons and scroll reveals. Service nodes and service-selector tabs work with mouse, touch and keyboard. The on-page motion control pauses ambient and entrance animation for the browser session. Operating-system reduced-motion preferences disable decorative animation, including when changed while the page is open. Content and routes remain available when motion is paused. Native scrolling is preserved.
+
+### Connection-engine service discovery
+
+Hovering with a mouse, focusing with the keyboard, or tapping a service selects a persistent preview. Each preview includes a service summary, three capabilities, a direct service-page link and an enquiry link with that service preselected. Arrow keys move between nodes; Escape moves focus to the service-page link. The preview remains available when the pointer leaves the diagram. On desktop it sits beside the larger engine; on mobile it follows the diagram. Preview updates work with motion paused and with reduced-motion preferences.
+
+Validated: all six hover previews and navigation targets, persistent preview when approaching links, keyboard navigation, enquiry preselection, touch interaction with reduced motion, and overflow checks at eight widths from 320 to 1440 pixels.

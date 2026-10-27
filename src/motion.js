@@ -66,17 +66,51 @@ export function initMotion(services, base) {
       }
     }
   });
-  // User-initiated service controls work with or without animation.
-  document.querySelectorAll('[data-engine]').forEach(button => {
-    on(button, 'click', () => {
-      const index = Number(button.dataset.engine), s = services[index];
-      document.querySelectorAll('[data-engine]').forEach(b => {const active=b===button;b.classList.toggle('selected',active);b.setAttribute('aria-pressed',String(active));});
-      document.querySelectorAll('[data-spoke]').forEach(p => p.classList.toggle('active',Number(p.dataset.spoke)===index));
-      document.getElementById('engine-title').textContent = s.title;
-      const link=document.getElementById('engine-link');link.href=base+'services/'+s.slug;link.firstChild.textContent='Explore '+s.short+' ';
-      if(!reduced) gsap.fromTo('.engine-readout',{y:6,opacity:.4},{y:0,opacity:1,duration:.3});
+  // A persistent preview can be reached without crossing a disappearing tooltip.
+  const engineButtons = [...document.querySelectorAll('[data-engine]')];
+  let activeEngine = Number(document.querySelector('[data-engine].selected')?.dataset.engine ?? 0);
+  const selectEngine = (button) => {
+    const index = Number(button.dataset.engine), s = services[index];
+    const changed = activeEngine !== index;
+    activeEngine = index;
+    engineButtons.forEach(b => {
+      const active = b === button;
+      b.classList.toggle('selected', active);
+      b.setAttribute('aria-pressed', String(active));
+    });
+    document.querySelectorAll('[data-spoke]').forEach(p => p.classList.toggle('active', Number(p.dataset.spoke) === index));
+    document.getElementById('engine-title').textContent = s.title;
+    document.getElementById('engine-description').textContent = s.desc;
+    document.getElementById('engine-count').textContent = String(index + 1).padStart(2, '0') + ' / 06';
+    const list = document.getElementById('engine-capabilities');
+    list.replaceChildren(...s.items.slice(0, 3).map(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      return li;
+    }));
+    const link = document.getElementById('engine-link');
+    link.href = base + 'services/' + s.slug;
+    link.querySelector('span').textContent = 'Explore ' + s.short;
+    document.getElementById('engine-contact').href = base + 'contact?service=' + s.slug;
+    if (!reduced && changed) gsap.fromTo('.engine-detail', { y: 5, opacity: .55 }, { y: 0, opacity: 1, duration: .22, overwrite: true });
+  };
+  engineButtons.forEach((button, i) => {
+    on(button, 'pointerenter', event => {
+      if (event.pointerType === 'mouse' && fine) selectEngine(button);
+    });
+    on(button, 'focus', () => selectEngine(button));
+    on(button, 'click', () => selectEngine(button));
+    on(button, 'keydown', event => {
+      let next;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (i + 1) % engineButtons.length;
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (i - 1 + engineButtons.length) % engineButtons.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = engineButtons.length - 1;
+      if (next !== undefined) { event.preventDefault(); engineButtons[next].focus(); }
+      if (event.key === 'Escape') { event.preventDefault(); document.getElementById('engine-link').focus(); }
     });
   });
+  if (engineButtons.length) selectEngine(engineButtons[activeEngine]);
   const tabs=[...document.querySelectorAll('[data-service]')];
   const selectTab = button => {
     const i=Number(button.dataset.service),s=services[i];
@@ -91,5 +125,5 @@ export function initMotion(services, base) {
   };
   tabs.forEach((b,i)=>{on(b,'click',()=>selectTab(b));on(b,'keydown',e=>{let j;if(e.key==='ArrowDown'||e.key==='ArrowRight')j=(i+1)%tabs.length;if(e.key==='ArrowUp'||e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;if(e.key==='Home')j=0;if(e.key==='End')j=tabs.length-1;if(j!==undefined){e.preventDefault();tabs[j].focus();selectTab(tabs[j]);}});});
   requestAnimationFrame(()=>ScrollTrigger.refresh());
-  return () => {controller.abort();gsap.killTweensOf('.engine-readout, .panel-content, .engine-lines, .engine-core, .button');context.revert();gsap.set('.button', {clearProps:'transform'});};
+  return () => {controller.abort();gsap.killTweensOf('.engine-readout, .engine-detail, .panel-content, .engine-lines, .engine-core, .button');context.revert();gsap.set('.button', {clearProps:'transform'});};
 }
