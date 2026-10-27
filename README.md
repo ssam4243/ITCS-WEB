@@ -79,3 +79,5 @@ npm run test:interactions
 Set `ITCS_TEST_URL` to test a different base URL (include its trailing slash). `PLAYWRIGHT_EXECUTABLE_PATH` optionally selects an installed Chromium executable. Tests cover recommendation journeys, hover previews, enquiry continuity, keyboard controls, motion preferences, dismissal, touch and eight responsive widths.
 
 The hero layout is maintained in `src/hero.css`: a balanced two-column introduction and service explorer, with the orbit and compact preview grouped as one module. The left column has a primary enquiry action and quiet priority links.
+
+The selected service now appears as a borderless caption beneath the orbit. Its name, explanation and service-page link stay visible; a native “What’s included” disclosure reveals capabilities and the contextual enquiry link.

@@ -38,6 +38,10 @@ const slugs = ['it-support', 'cyber-security', 'telecoms', 'networks', 'software
     await page.locator('#engine-link').hover();
     assert.equal(await page.locator('#engine-title').innerText(), 'Cyber security');
     assert.ok((await page.locator('#engine-readout').boundingBox()).height < 300);
+    assert.equal(await page.locator('#engine-capabilities').isVisible(), false);
+    await page.locator('.engine-more summary').click();
+    assert.equal(await page.locator('#engine-capabilities').isVisible(), true);
+    await page.locator('.engine-more summary').click();
 
     // The native-scroll narrative actually draws its connections as it progresses.
     const initialDash = await page.locator('.flow-connections path').first().evaluate(el => parseFloat(getComputedStyle(el).strokeDashoffset));
