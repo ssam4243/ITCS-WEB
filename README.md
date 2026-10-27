@@ -61,7 +61,7 @@ The revised homepage uses GSAP and ScrollTrigger: character entrances, an intera
 
 ### Connection-engine service discovery
 
-Hovering with a mouse, focusing with the keyboard, or tapping a service selects a persistent preview. Each preview includes a service summary, three capabilities, a direct service-page link and an enquiry link with that service preselected. Arrow keys move between nodes; Escape moves focus to the service-page link. The preview remains available when the pointer leaves the diagram. On desktop it sits beside the larger engine; on mobile it follows the diagram. Preview updates work with motion paused and with reduced-motion preferences.
+Hovering with a mouse, focusing with the keyboard, or tapping a service selects a persistent preview. Each preview includes a service summary, three capabilities, a direct service-page link and an enquiry link with that service preselected. Arrow keys move between nodes; Escape moves focus to the service-page link. The preview remains available when the pointer leaves the diagram. The compact preview sits directly beneath the orbit on desktop and mobile. Preview updates work with motion paused and with reduced-motion preferences.
 
 Validated: all six hover previews and navigation targets, persistent preview when approaching links, keyboard navigation, enquiry preselection, touch interaction with reduced motion, and overflow checks at eight widths from 320 to 1440 pixels.
 
@@ -77,3 +77,5 @@ npm run test:interactions
 ```
 
 Set `ITCS_TEST_URL` to test a different base URL (include its trailing slash). `PLAYWRIGHT_EXECUTABLE_PATH` optionally selects an installed Chromium executable. Tests cover recommendation journeys, hover previews, enquiry continuity, keyboard controls, motion preferences, dismissal, touch and eight responsive widths.
+
+The hero layout is maintained in `src/hero.css`: a balanced two-column introduction and service explorer, with the orbit and compact preview grouped as one module. The left column has a primary enquiry action and quiet priority links.
