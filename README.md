@@ -54,3 +54,7 @@ To reproduce the hosted build locally:
 PAGES_BASE_PATH=/ITCS-WEB/ npm run build
 PAGES_BASE_PATH=/ITCS-WEB/ npm run preview -- --port 4173
 ```
+
+## Motion and interaction design
+
+The revised homepage uses GSAP and ScrollTrigger: character entrances, an interactive six-service connection engine, pointer-responsive graphics, animated signal paths, a scrolling service ribbon, magnetic buttons and scroll reveals. Service nodes and service-selector tabs work with mouse, touch and keyboard. The on-page motion control pauses ambient and entrance animation for the browser session. Operating-system reduced-motion preferences disable decorative animation, including when changed while the page is open. Content and routes remain available when motion is paused. Native scrolling is preserved.
