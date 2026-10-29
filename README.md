@@ -83,3 +83,9 @@ The hero layout is maintained in `src/hero.css`: a balanced two-column introduct
 The selected service now appears as a borderless caption beneath the orbit. Its name, explanation and service-page link stay visible; full capabilities and contextual enquiry actions are on the service page.
 
 The banner now uses one proposition, one primary enquiry action and the orbit. Business-priority choices live in the services section and update the relevant service panel. The ticker and repeated banner status labels have been removed. See [banner research and rationale](docs/research/banner-direction.md).
+
+## Service-folder banner
+
+The orbit has been replaced with a custom illustrated ITCS pocket and six stacked service cards. Open the folder, select a card, explore the service, browse previous/next or return the paper to the stack. The grip adds optional bounded dragging with spring return on fine-pointer devices. Compact layouts use readable touch choices; keyboard and reduced-motion controls remain available.
+
+Implementation: `src/service-folder.js` and `src/service-folder.css`. [Implementation options and behaviour](docs/research/service-folder-direction.md) documents the Three.js/Rive/GSAP comparison and validation boundaries. Run `npm run test:interactions` against a running server to verify the current folder journeys.
