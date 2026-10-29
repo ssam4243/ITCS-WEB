@@ -91,3 +91,9 @@ The orbit has been replaced with a custom illustrated ITCS pocket and six stacke
 Implementation: `src/service-folder.js` and `src/service-folder.css`. [Implementation options and behaviour](docs/research/service-folder-direction.md) documents the Three.js/Rive/GSAP comparison and validation boundaries. Run `npm run test:interactions` against a running server to verify the current folder journeys.
 
 Direct selection: all six desktop papers are exposed and selectable immediately, including their visible body areas. Hover lifts the paper surface and catches a highlight while its click target stays fixed. Touch users can select exposed papers or the larger service tabs without spreading the folder first. Previous/next transitions follow their direction, and the spread control remains optional.
+
+## Full homepage interaction pass
+
+The folder remains the homepage's signature. Below it, customer references lead into an interactive business-scenario workbench, a capability-rich service explorer, expandable people principles, customer quotation tabs, sector context, FAQs and the closing invitation. See [homepage research and implementation rationale](docs/research/homepage-direction.md). No new runtime dependencies were added.
+
+Run `npm run test:homepage` against a running dev or production-preview server, using the same `ITCS_TEST_URL` and optional `PLAYWRIGHT_EXECUTABLE_PATH` variables as the interaction checks. It verifies scenario/customer tab controls, sector hover/focus, accordions, enquiry context, responsive widths and motion preferences. Customer quotations are attributed to archived material; scenarios are illustrative.

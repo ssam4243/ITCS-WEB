@@ -7,7 +7,8 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build && node scripts/prepare-pages.js",
     "preview": "vite preview --host 0.0.0.0",
-    "test:interactions": "node scripts/interaction-check.cjs"
+    "test:interactions": "node scripts/interaction-check.cjs",
+    "test:homepage": "node scripts/homepage-check.cjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.1",
