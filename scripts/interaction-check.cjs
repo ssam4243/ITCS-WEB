@@ -15,12 +15,17 @@ const slugs = ['it-support','cyber-security','telecoms','networks','software-web
     assert.equal(await page.locator('.orbit-node').count(),0);
     assert.equal(await page.locator('.experience-hero [data-goal]').count(),0);
     assert.equal(await page.locator('.experience-hero .hero-actions .button').count(),1);
-    await page.getByRole('button',{name:'Open service folder',exact:true}).click();
-    assert.equal(await page.locator('.folder-pocket').getAttribute('aria-expanded'),'true');
+    assert.equal(await page.locator('.folder-pocket').getAttribute('aria-expanded'),'false');
     assert.equal(await page.locator('.file-stack').evaluate(el=>el.inert),false);
 
+    await page.locator('[data-engine="1"]').hover();
+    const hitBefore=await page.locator('[data-engine="1"]').boundingBox();
+    await page.waitForFunction(()=>{const t=getComputedStyle(document.querySelector('[data-file="1"] .file-surface')).transform;return t!=='none'&&new DOMMatrix(t).m42 < -4;});
+    const hitAfter=await page.locator('[data-engine="1"]').boundingBox();
+    assert.ok(Math.abs(hitBefore.y-hitAfter.y)<1,'Hover must not move the click target');
+
     for(let i=0;i<6;i++) {
-      if(await page.locator('.folder-all').isVisible()) await page.locator('.folder-all').click();
+      await page.goto(origin.href);
       await page.locator(`[data-engine="${i}"]`).click();
       assert.equal(await page.locator('#engine-link').getAttribute('href'),path('services/'+slugs[i]));
       assert.equal(await page.locator('#folder-capabilities li').count(),3);
@@ -28,6 +33,9 @@ const slugs = ['it-support','cyber-security','telecoms','networks','software-web
       assert.equal(await page.locator('.file-stack').evaluate(el=>el.inert),true);
       assert.equal(await page.locator(`[data-engine="${i}"]`).getAttribute('aria-pressed'),'true');
     }
+    await page.goto(origin.href);
+    await page.locator('[data-file="5"]').click({position:{x:100,y:55}});
+    assert.equal(await page.locator('#engine-title').innerText(),'Digital marketing');
     await page.getByRole('button',{name:'Previous service',exact:true}).click();
     assert.equal(await page.locator('#engine-link').getAttribute('href'),path('services/software-websites'));
     await page.getByRole('button',{name:'Next service',exact:true}).click();
@@ -57,7 +65,7 @@ const slugs = ['it-support','cyber-security','telecoms','networks','software-web
     await page.getByRole('link',{name:'Talk about cyber security'}).click();
     assert.equal(await page.locator('[name=service]').inputValue(),'cyber-security');
     await page.locator('.logo').first().click();
-    await page.locator('.folder-pocket').focus();await page.keyboard.press('Enter');
+    await page.locator('[data-engine="0"]').focus();
     assert.equal(await page.locator('[data-engine="0"]').evaluate(el=>el===document.activeElement),true);
     await page.keyboard.press('ArrowRight');
     assert.equal(await page.locator('[data-engine="1"]').evaluate(el=>el===document.activeElement),true);
@@ -81,8 +89,7 @@ const slugs = ['it-support','cyber-security','telecoms','networks','software-web
     for(const width of [1440,1024,820,800,768,390,375,320]){
       await page.setViewportSize({width,height:1000});await page.goto(origin.href);
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'Closed overflow '+width);
-      await page.locator('.folder-pocket').click();
-      const button=width<=1100?page.locator('[data-folder-choose="1"]'):page.locator('[data-engine="1"]');
+      const button=width<=1100?page.locator('[data-folder-quick="1"]'):page.locator('[data-engine="1"]');
       await button.click();
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'Selected overflow '+width);
       const card=await page.locator('.folder-extracted').boundingBox();const view=await page.locator('.folder-viewport').boundingBox();
@@ -91,19 +98,21 @@ const slugs = ['it-support','cyber-security','telecoms','networks','software-web
     const mobile=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'});
     const touch=await mobile.newPage();touch.on('pageerror',e=>errors.push(e.message));
     await touch.goto(origin.href);await touch.getByRole('button',{name:'Essential only'}).click();
-    await touch.getByRole('button',{name:'Open service folder',exact:true}).tap();
-    assert.equal(await touch.locator('[data-folder-choose]').count(),6);
+    await touch.locator('[data-engine="1"]').tap();
+    assert.equal(await touch.locator('#engine-title').innerText(),'Cyber security');
+    await touch.getByRole('button',{name:'Return card to folder'}).tap();
     await touch.locator('.folder-mobile-close').tap();
-    assert.equal(await touch.locator('.folder-module').getAttribute('data-folder-state'),'closed');
-    await touch.getByRole('button',{name:'Open service folder',exact:true}).tap();
-    await touch.locator('[data-folder-choose="1"]').tap();
+    await touch.locator('[data-folder-quick="1"]').tap();
     assert.equal(await touch.locator('#engine-title').innerText(),'Cyber security');
     assert.match(await touch.locator('.motion-control').innerText(),/Reduced motion on/);
     await touch.getByRole('button',{name:'Return card to folder'}).tap();
     assert.equal(await touch.locator('.folder-module').getAttribute('data-folder-state'),'open');
-    await touch.locator('[data-folder-choose="3"]').tap();
+    assert.equal(await touch.locator('[data-folder-choose]').count(),6);
+    await touch.locator('.folder-mobile-close').tap();
+    assert.equal(await touch.locator('.folder-module').getAttribute('data-folder-state'),'closed');
+    await touch.locator('[data-folder-quick="3"]').tap();
     await touch.locator('#engine-link').tap();await touch.waitForURL(u=>u.pathname===path('services/networks'));
     assert.deepEqual(errors,[]);
-    console.log('PASS: six card extractions, drag/spring return, previous/next, four goal journeys, service-to-enquiry navigation, keyboard open/select/return/close, pause state, contextual shortcut, eight widths, mobile touch and reduced motion, no JS errors.');
+    console.log('PASS: six direct card selections without opening the folder, card extractions, drag/spring return, previous/next, four goal journeys, service-to-enquiry navigation, keyboard open/select/return/close, pause state, contextual shortcut, eight widths, mobile touch and reduced motion, no JS errors.');
   } finally { await browser.close(); }
 })().catch(error=>{console.error(error);process.exit(1);});

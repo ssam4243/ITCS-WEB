@@ -73,3 +73,34 @@
 .pocket-plus{transition:transform .25s,background .25s}.folder-pocket:hover .pocket-plus{transform:rotate(-12deg);background:#ffffff12}
 @media(prefers-reduced-motion:reduce){.pocket-plus{transition:none}}
 .folder-no-drag .file-grab{visibility:hidden}
+/* Every exposed paper is a direct control; hover animation never moves its hit area. */
+.folder-module .service-file{--file-paper:#f4f4f0;background:transparent;border:0;box-shadow:none}
+.service-file:nth-child(2){--file-paper:#e6e7e5}.service-file:nth-child(3){--file-paper:#d7dcdd}.service-file:nth-child(4){--file-paper:#f6f1ed}.service-file:nth-child(5){--file-paper:#e5dfe2}.service-file:nth-child(6){--file-paper:#f9f6f1}
+.file-surface{position:absolute;inset:0;background:var(--file-paper);border:1px solid #ffffff90;border-radius:12px;box-shadow:0 5px 13px #0003;pointer-events:none;transition:border-color .2s,box-shadow .2s}
+.service-file.is-hovered .file-surface{border-color:#f47179;box-shadow:0 8px 24px #0004,0 0 0 1px #e2202820}
+.file-select{position:absolute;inset:0;height:100%;align-items:flex-start;padding:12px 14px;z-index:2;border-radius:12px;cursor:pointer;line-height:20px}
+.file-select:hover,.file-select:focus-visible{background:transparent;color:#b92330}
+.file-select:focus-visible{outline:2px solid #bd2633;outline-offset:-2px}
+.file-label{max-width:250px}
+.file-index{line-height:20px;transition:opacity .2s}
+.file-hover-arrow{position:absolute;right:14px;top:13px;opacity:0;transition:opacity .2s;color:#c22734}
+.file-hover-arrow .arrow-icon{width:15px;height:15px}
+.service-file.is-hovered .file-index{opacity:0}.service-file.is-hovered .file-hover-arrow{opacity:1}
+.file-paper-art{position:absolute;left:22px;right:22px;top:58px;height:150px;margin:0;z-index:1}
+.folder-quick-picks{display:none}
+@media(max-width:1100px){
+  .folder-quick-picks{display:grid;grid-template-columns:1fr 1fr;gap:7px;width:100%;max-width:450px;padding:2px 8px 0}
+  .folder-is-open .folder-quick-picks{display:none}
+  .folder-quick-picks>button{display:flex;align-items:center;gap:9px;min-height:44px;padding:10px 12px;background:#242226;border:1px solid #ffffff17;border-radius:7px;color:#c7c4cd;text-align:left;font-size:10px;line-height:1.5}
+  .folder-quick-picks>button>span:first-child svg{display:block;width:18px;height:18px;color:#ef606b}
+  .folder-quick-picks>button>.arrow-icon{width:11px;height:11px;margin-left:auto;color:#827d8a}
+  .folder-quick-picks>button:hover{border-color:#ef606b;color:white}
+}
+@media(max-width:480px){.folder-quick-picks{padding-inline:2px}.folder-quick-picks>button{font-size:10px;padding:10px;gap:8px}}
+@media(max-width:360px){.folder-quick-picks>button{font-size:9px;padding:9px 8px;gap:7px}.folder-quick-picks>button>.arrow-icon{display:none}}
+@media(prefers-reduced-motion:reduce){.file-surface,.file-index,.file-hover-arrow{transition:none}}
+.service-file{cursor:pointer}
+.file-select{height:45px;bottom:auto}
+.file-surface:after{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(120deg,transparent 25%,#ffffff70 52%,transparent 75%);opacity:0;transition:opacity .25s;pointer-events:none}.service-file.is-hovered .file-surface:after{opacity:.65}
+@media(prefers-reduced-motion:reduce){.file-surface:after{transition:none}}
+.folder-viewport{perspective:1000px}
