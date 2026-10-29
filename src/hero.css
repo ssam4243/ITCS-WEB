@@ -52,9 +52,9 @@ body:has(.experience-hero) .header-inner nav>.button:hover{background:#ffffff09;
 .hero-kicker{display:inline-flex;align-items:center;gap:10px;color:#c2bfc3;letter-spacing:.09em}
 .hero-kicker:before{content:'';width:5px;height:5px;background:var(--red);border-radius:50%}
 .hero-description{max-width:425px;color:#bcb9bf;font-size:14px;line-height:1.85}
-.hero-core-services{display:grid;grid-template-columns:repeat(3,1fr);max-width:425px;margin-top:25px;border-block:1px solid #ffffff1a}
+.hero-core-services{display:grid;grid-template-columns:repeat(3,1fr);max-width:425px;margin-top:25px}
 .hero-core-services button{background:none;border:0;color:#f4f1f2;text-align:left;padding:15px 10px 15px 0;cursor:pointer;min-height:72px}
-.hero-core-services button+button{padding-left:15px;border-left:1px solid #ffffff1a}
+.hero-core-services button+button{padding-left:15px}
 .hero-core-services button>span{display:flex;align-items:center;gap:8px;font-size:10px;font-weight:500;white-space:nowrap}
 .hero-core-services .arrow-icon{width:12px;height:12px;color:#e7555d;transition:transform .2s}
 .hero-core-services small{display:block;color:#8f8b94;font-size:9px;margin-top:7px}
