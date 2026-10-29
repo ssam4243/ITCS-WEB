@@ -104,3 +104,10 @@
 .file-surface:after{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(120deg,transparent 25%,#ffffff70 52%,transparent 75%);opacity:0;transition:opacity .25s;pointer-events:none}.service-file.is-hovered .file-surface:after{opacity:.65}
 @media(prefers-reduced-motion:reduce){.file-surface:after{transition:none}}
 .folder-viewport{perspective:1000px}
+/* The three operational services lead the stack; the wider offering stays discoverable. */
+.service-file:nth-child(-n+3) .file-surface{border-left:3px solid #d32b36}
+.service-file:nth-child(-n+3) .file-label{font-weight:600}
+.service-file:nth-child(n+4) .file-icon svg{color:#716b73}
+.folder-toolbar>span{letter-spacing:.03em;color:#b4afb9}
+.folder-back{background:linear-gradient(125deg,#45282c,#291d20)}
+.pocket-footer{letter-spacing:.05em}.folder-caption p{color:#aaa4af}

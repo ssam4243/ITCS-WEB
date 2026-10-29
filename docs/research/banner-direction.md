@@ -35,3 +35,10 @@ The resulting reading order is: understand the offer → enquire or explore → 
 Browser checks cover the simplified banner, all priority recommendations, service selection, contextual enquiry continuity, scroll narrative, keyboard controls, motion preferences, touch and eight responsive widths. Desktop and mobile screenshots are inspected. Production-path checks verify the GitHub Pages base path.
 
 A five-second comprehension test with target buyers and production enquiry data are still needed. The current form is a demonstration; no conversion increase is claimed.
+
+### Core service emphasis — 29 October 2026
+Reviewed the ITCS homepage capture dated 21 April 2026:
+https://web.archive.org/web/20260421205355/https://www.itcs.co.uk/
+The live homepage returned HTTP 403 during this review. The archived lead proposition explicitly foregrounds IT services and telecoms; subsequent hero slides feature cyber security and Microsoft cloud transformation. The Siderise, Sony and Citizens Advice testimonials provide examples of IT support, hardware and infrastructure work. This supports prioritising operational IT, security and connectivity in the prototype. It does not establish relative revenue contribution: no verified service-level financial breakdown was available from this source. Marketing, web/software and networks remain part of the full offering.
+
+Retained the established ITCS logo, red folder and directly selectable cards. Replaced the broad service-list introduction with a business continuity proposition, added three compact outcome-led service controls linked to the folder, and gave the first three papers stronger edge and typographic emphasis. No revenue claims or unverified performance statistics were added. These are editorial priorities rather than claims about financial performance.
