@@ -77,7 +77,7 @@
 .folder-module .service-file{--file-paper:#f4f4f0;background:transparent;border:0;box-shadow:none}
 .service-file:nth-child(2){--file-paper:#e6e7e5}.service-file:nth-child(3){--file-paper:#d7dcdd}.service-file:nth-child(4){--file-paper:#f6f1ed}.service-file:nth-child(5){--file-paper:#e5dfe2}.service-file:nth-child(6){--file-paper:#f9f6f1}
 .file-surface{position:absolute;inset:0;background:var(--file-paper);border:1px solid #ffffff90;border-radius:12px;box-shadow:0 5px 13px #0003;pointer-events:none;transition:border-color .2s,box-shadow .2s}
-.service-file.is-hovered .file-surface{border-color:#f47179;box-shadow:0 8px 24px #0004,0 0 0 1px #e2202820}
+.service-file.is-hovered .file-surface{border-color:#ffffffb3;box-shadow:0 8px 24px #0004}
 .file-select{position:absolute;inset:0;height:100%;align-items:flex-start;padding:12px 14px;z-index:2;border-radius:12px;cursor:pointer;line-height:20px}
 .file-select:hover,.file-select:focus-visible{background:transparent;color:#b92330}
 .file-select:focus-visible{outline:2px solid #bd2633;outline-offset:-2px}
