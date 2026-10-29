@@ -105,7 +105,6 @@
 @media(prefers-reduced-motion:reduce){.file-surface:after{transition:none}}
 .folder-viewport{perspective:1000px}
 /* The three operational services lead the stack; the wider offering stays discoverable. */
-.service-file:nth-child(-n+3) .file-surface{border-left:3px solid #d32b36}
 .service-file:nth-child(-n+3) .file-label{font-weight:600}
 .service-file:nth-child(n+4) .file-icon svg{color:#716b73}
 .folder-toolbar>span{letter-spacing:.03em;color:#b4afb9}
