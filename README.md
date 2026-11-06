@@ -101,3 +101,7 @@ Run `npm run test:homepage` against a running dev or production-preview server, 
 ## Current homepage rework
 
 The current below-banner composition is in `src/home-rework.js` and `src/home-rework.css`, following the user's WebCastle reference. The folder banner stays in place; `src/logo-particles.js` adds a pointer-responsive particle treatment to its existing ITCS logo, with a static accessible fallback and motion-preference support. See the latest entry in [homepage direction](docs/research/homepage-direction.md). Run both homepage and folder interaction suites against a running server.
+
+## Alison reception preview
+
+The homepage service-detail panel has been replaced with an original animated Alison introduction: perspective door, character entrance/wave, four example conversations, optional device-voice preview and an Alison-specific enquiry route. See [implementation and evidence limits](docs/research/alison-experience.md). Run `npm run test:alison` alongside the existing regression suites. This is a scripted frontend demonstration; it does not make live calls or connect to an AI receptionist backend.

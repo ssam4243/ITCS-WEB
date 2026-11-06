@@ -50,18 +50,11 @@ const slugs = ['it-support','cyber-security','telecoms','networks','software-web
     await page.mouse.up();
     await page.waitForFunction(x=>Math.abs(document.querySelector('.folder-extracted').getBoundingClientRect().x-x)<1,rest.x);
 
-    await page.evaluate(()=>{window.itcsEvents=[];window.addEventListener('itcs:interaction',e=>window.itcsEvents.push(e.detail));});
     for(const [goal,index] of [['reliability',0],['security',1],['connection',2],['digital',4]]){
-      await page.locator(`[data-goal="${goal}"]`).click();
-      assert.equal(await page.locator(`[data-goal="${goal}"]`).getAttribute('aria-pressed'),'true');
-      assert.match(await page.locator('#engine-description').innerText(),/^Start with/);
-      assert.equal(await page.locator('#engine-link').getAttribute('href'),path('services/'+slugs[index]));
-      assert.equal(await page.locator('#panel-link').getAttribute('href'),path('services/'+slugs[index]));
+      await page.goto(origin.href);await page.locator(`[data-goal="${goal}"]`).click();
+      await page.waitForURL(u=>u.pathname===path('services/'+slugs[index]));
     }
-    assert.equal((await page.evaluate(()=>window.itcsEvents)).filter(e=>e.action==='choose-goal').length,4);
-    await page.locator('[data-goal="security"]').click();
-    await page.locator('#engine-link').click();
-    await page.waitForURL(u=>u.pathname===path('services/cyber-security'));
+    await page.goto(new URL('services/cyber-security',origin).href);
     await page.getByRole('link',{name:'Talk about cyber security'}).click();
     assert.equal(await page.locator('[name=service]').inputValue(),'cyber-security');
     await page.locator('.logo').first().click();
@@ -75,11 +68,11 @@ const slugs = ['it-support','cyber-security','telecoms','networks','software-web
     await page.keyboard.press('Escape');assert.equal(await page.locator('.folder-module').getAttribute('data-folder-state'),'open');
     await page.keyboard.press('Escape');assert.equal(await page.locator('.folder-module').getAttribute('data-folder-state'),'closed');
 
-    await page.locator('[data-goal="security"]').click();
+    await page.locator('[data-engine="1"]').click();
     await page.locator('.motion-control').click();
     assert.match(await page.locator('.motion-control').innerText(),/Play motion/);
     assert.equal(await page.locator('.folder-module').getAttribute('data-folder-state'),'selected');
-    assert.match(await page.locator('#engine-description').innerText(),/^Start with/);
+    assert.ok((await page.locator('#engine-description').innerText()).length>60);
     await page.locator('#expertise').scrollIntoViewIfNeeded();
     await page.locator('.conversation-dock').waitFor({state:'visible'});
     assert.equal(await page.locator('#dock-link').getAttribute('href'),path('contact')+'?service=cyber-security');
