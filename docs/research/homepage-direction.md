@@ -41,3 +41,11 @@ Reviewed https://heyhihello.com/ in a rendered Chromium desktop session (HTTP 20
 Observed a large conversational proposition, a bright rounded hero surface, restrained hand-drawn emphasis, a customer quotation close to the opening action, three plainly explained practices, and sector-specific context. Adopted the principles of approachable language, visible customer proof and softer section transitions for ITCS. The ITCS logo, existing red/charcoal palette, direct-selection service folder, service priorities and working enquiry journeys remain the design foundation. No HeyHiHello assets, testimonials, business metrics or agency offerings were reused.
 
 The experimental pass adds a drawn connection stroke to the hero, brings an existing attributed Sony customer quotation into the opening reference strip, makes the service heading explicit, rounds the main alternating section surfaces, and softens selected CTA shapes. Drawing respects reduced motion and the existing pause control. Existing archived-source attribution is retained. Responsive and interaction regression checks accompany this pass; no conversion improvement is claimed without user data.
+
+## Direct interaction pass — 6 November 2026
+
+The connection diagram now contains native service links, with coordinated hover/focus highlights on the corresponding explanation. Service URLs update with each scenario. A bounded pointer tilt adds tactile feedback to the central card only for fine pointers with motion enabled. The diagram remains usable as links with reduced motion.
+
+Customer perspectives have explicit previous/next controls and a position indicator, plus horizontal touch swipe. Vertical scrolling remains native; there is no autoplay. The sector preview has a native selector and an explicit link, enabling touch visitors to explore context before navigating. The homepage closing invitation includes four topic controls that update the action and preselect the enquiry form. Selecting an active topic again clears it. No message is sent by these controls.
+
+Extended homepage checks cover matching node/service URLs, coordinated highlights, customer arrows, actual Chromium touch-swipe input, sector selection, enquiry topic continuity and responsive layouts. The existing folder regression suite also passes.

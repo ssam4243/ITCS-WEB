@@ -83,3 +83,32 @@
 @media(max-width:480px){.home-page .trust{padding-block:26px;gap:20px}.trust-perspective blockquote{font-size:12px;line-height:1.8;max-width:320px;margin-inline:auto}.trust-perspective>span{font-size:8px}.home-page .expertise-lab,.home-page .customer-section{margin-inline:8px;border-radius:20px}.home-page .expertise-lab .wrap,.home-page .customer-section .wrap{width:calc(100% - 28px)}.home-page .expertise-lab .section-heading h2{font-size:36px}.home-page .hero-actions .button{padding-inline:20px;gap:24px}}
 @media(max-width:360px){.home-page .expertise-lab .section-heading h2{font-size:32px}.trust-perspective blockquote{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.home-page .expertise-option{transition:none}}
+/* Direct manipulation: the diagram and its service paths behave as one interface. */
+.scenario-visual{perspective:900px}.scenario-centre{transform-style:preserve-3d}
+.scenario-node{border:0;transition:box-shadow .2s,background .2s;color:#4b464f}
+.scenario-node:hover,.scenario-node.node-highlight{background:#fff;box-shadow:0 12px 28px #2222;outline:1px solid #24242425}
+.scenario-node:focus-visible{outline:3px solid #2878d4;outline-offset:4px}
+.scenario-steps a{border-radius:9px;transition:background .2s,padding .2s}
+.scenario-steps a.step-highlight{background:#f4f4f1;padding-inline:10px}
+.scenario-wires path.wire-highlight{stroke-width:3;stroke:#bd1c29}
+.customer-navigation{display:flex;align-items:center;gap:18px;margin-top:24px}
+.customer-navigation button{display:grid;place-items:center;width:44px;height:44px;border:1px solid #ffffff30;background:none;border-radius:50%;color:#eee;font-size:18px}
+.customer-navigation button:hover{background:#ffffff12;border-color:#ffffff80}
+#customer-position{font-size:10px;color:#bbb3c1;min-width:35px;text-align:center}
+.customer-feature{touch-action:pan-y}
+.sector-picker-label{display:block;font-size:9px;color:#756c7e;margin-top:22px}
+#sector-picker{font-size:11px;margin:7px 0 0;min-height:44px;border:0;background:white;border-radius:8px;padding:12px;color:#403647;cursor:pointer}
+#sector-preview-link{display:flex;align-items:center;gap:14px;font-size:11px;min-height:44px;color:#a61c28;margin-top:9px}
+#sector-preview-link .arrow-icon{width:14px;height:14px}
+.sector-preview-label{display:none}
+.home-page .closing .conversation-topics{display:block;margin:0 0 34px}
+.conversation-topics>span{display:block;font-size:11px;color:#ffe0e3;margin-bottom:12px}
+.conversation-topics>div{display:flex;gap:9px;flex-wrap:wrap}
+.conversation-topics button{display:inline-flex;align-items:center;gap:20px;min-height:44px;padding:11px 17px;border:1px solid #ffffff55;background:transparent;border-radius:30px;color:white;font-size:11px;transition:background .2s,color .2s}
+.conversation-topics button>span{font-size:17px;line-height:1}
+.conversation-topics button[aria-pressed=true]{background:white;color:#b61a26;border-color:white}
+.conversation-topics button[aria-pressed=true]>span{transform:rotate(45deg)}
+.conversation-topics button:hover{background:#ffffff15}.conversation-topics button[aria-pressed=true]:hover{background:#fff}
+.home-page .closing #conversation-topic-status{font-size:10px;min-height:20px;margin-top:13px;color:#ffe0e3}
+@media(max-width:480px){.sector-picker-label,#sector-picker,#sector-preview-link{grid-column:1/-1}.sector-picker-label{margin-top:6px}#sector-picker{margin-top:0}.customer-navigation{margin-top:20px}.conversation-topics button{font-size:10px;gap:15px;padding:11px 14px}.home-page .closing .conversation-topics{margin-bottom:26px}}
+@media(prefers-reduced-motion:reduce){.scenario-node,.scenario-steps a,.conversation-topics button{transition:none}}
