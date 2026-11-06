@@ -77,3 +77,11 @@ IT support, cyber security and telecoms have the strongest visual hierarchy. Sec
 Typography, neutral colours, red accents and spacing are consistent across the sections. Customer switching and Alison keep useful interaction; essential service and sector information is available without interaction. Scroll movement is limited to a small, one-time entrance; the parallax and rotated-card entrances are removed. The existing folder and particle-logo interactions are retained.
 
 Validation covers the revised reading order, six service destinations, service-to-enquiry continuity, direct sector routes, visible process content, FAQ expansion, customer controls and touch swipe, eight responsive widths, reduced motion, plus the existing Alison and folder interaction suites. This validates implementation and navigation; conversion improvements require observation with real prospective customers.
+
+## Landing-only review and alignment refinement
+
+The customer section now uses equal text tabs instead of differently proportioned logo images. The heading, quotation and attribution share the same left edge. Source information and browsing controls share a separate aligned bottom row. Quotations and source attribution remain unchanged.
+
+Navigation uses a compact sticky ITCS header with section links and a mobile disclosure. The footer groups services, page sections and contact information; its closing enquiry area uses the same palette and typography. Internal journeys stay on the homepage. Native dialogs provide service capabilities, sourced customer summaries, sector context, support information and the local enquiry form. Direct old inner-page URLs resolve to the landing page; page source is retained for later development. External telephone and client portal links remain functional.
+
+Dialog focus is managed by the native modal element; Escape closes it, the backdrop can dismiss it, and the underlying page is locked while open. Opening a dialog stops Alison audio. Enquiry service context and Alison business-name personalisation are preserved. This remains a frontend preview with no message delivery.

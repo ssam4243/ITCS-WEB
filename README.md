@@ -13,20 +13,13 @@ npm run dev -- --port 5173
 
 For a production build: `npm run build`. To serve it: `npm run preview -- --port 4173`.
 
-## Included journeys
+## Current scope: landing page only
 
-- Homepage and service overview
-- Six service-detail pages with capabilities, process and FAQs
-- Ten sector pages
-- Customer perspective listing, filters and three detail pages
-- About ITCS
-- Three prototype editorial guides
-- Contact form with native validation and a local-only confirmation
-- Support page linking to the existing client portal and service status
-- Privacy explanation and cookie preferences
-- Responsive mobile navigation, service menu, keyboard focus and reduced-motion support
+The current review is intentionally limited to the landing page. Header and footer links move between sections. Service, sector and customer details open in native on-page dialogs, and enquiries open in a contextual form dialog. External telephone, client portal and existing privacy links remain available.
 
-Client-side routes require a hosting fallback to `index.html`; Vite handles this during development and preview.
+Direct visits to old inner-page URLs return to the landing page. Inner-page source is retained for later development, but those pages are not rendered in this review. Enquiry forms validate locally and do not send messages.
+
+Run `npm run test:landing` for section navigation, dialogs, enquiry context, Escape, mobile navigation, responsive bounds and direct-URL handling. The folder, homepage and Alison suites remain available.
 
 ## Content boundaries
 

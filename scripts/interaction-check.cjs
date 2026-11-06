@@ -52,12 +52,13 @@ const slugs = ['it-support','cyber-security','telecoms','networks','software-web
 
     for(const index of [0,1,2,4]){
       await page.goto(origin.href);await page.locator(`[data-service-link="${index}"]`).click();
-      await page.waitForURL(u=>u.pathname===path('services/'+slugs[index]));
+      assert.equal(new URL(page.url()).pathname,origin.pathname);await page.locator('#landing-detail').waitFor({state:'visible'});await page.keyboard.press('Escape');
     }
-    await page.goto(new URL('services/cyber-security',origin).href);
-    await page.getByRole('link',{name:'Talk about cyber security'}).click();
+    await page.goto(origin.href);
+    await page.locator('[data-service-link="1"]').click();
+    await page.getByRole('button',{name:'Talk about cyber security'}).click();
     assert.equal(await page.locator('[name=service]').inputValue(),'cyber-security');
-    await page.locator('.logo').first().click();
+    await page.keyboard.press('Escape');await page.locator('.logo').first().click();
     await page.locator('[data-engine="0"]').focus();
     assert.equal(await page.locator('[data-engine="0"]').evaluate(el=>el===document.activeElement),true);
     await page.keyboard.press('ArrowRight');
@@ -104,7 +105,7 @@ const slugs = ['it-support','cyber-security','telecoms','networks','software-web
     await touch.locator('.folder-mobile-close').tap();
     assert.equal(await touch.locator('.folder-module').getAttribute('data-folder-state'),'closed');
     await touch.locator('[data-folder-quick="3"]').tap();
-    await touch.locator('#engine-link').tap();await touch.waitForURL(u=>u.pathname===path('services/networks'));
+    await touch.locator('#engine-link').tap();await touch.locator('#landing-detail').waitFor({state:'visible'});assert.match(await touch.locator('#landing-detail-title').innerText(),/Networks/);assert.equal(new URL(touch.url()).pathname,origin.pathname);
     assert.deepEqual(errors,[]);
     console.log('PASS: six direct card selections without opening the folder, card extractions, drag/spring return, previous/next, four direct service journeys, service-to-enquiry navigation, keyboard open/select/return/close, pause state, contextual shortcut, eight widths, mobile touch and reduced motion, no JS errors.');
   } finally { await browser.close(); }

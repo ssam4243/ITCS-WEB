@@ -39,6 +39,7 @@ export function initAlison(){
  async function loadAvatar(){if(loading||disposed)return;loading=true;try{const {createAlisonAvatar}=await import('./alison-avatar');if(disposed)return;avatar=await createAlisonAvatar(q('.alison-model'),{amplitude});if(disposed){avatar.dispose();return}avatar.setActive(active);root.dataset.avatar='ready'}catch(e){if(disposed)return;root.dataset.avatar='fallback';q('.alison-model').innerHTML=`<img src="${base}assets/alison/portrait.png" alt="Alison virtual receptionist"><span class="alison-fallback">3D preview unavailable on this device</span>`;console.warn('Alison 3D preview unavailable',e.message)}}
  const observer=new IntersectionObserver(entries=>{active=entries[0].isIntersecting;if(active)loadAvatar();avatar?.setActive(active)},{rootMargin:'150px',threshold:0});observer.observe(q('.alison-stage'));
  const sectionObserver=new IntersectionObserver(entries=>{if(!entries[0].isIntersecting)stop()},{threshold:0});sectionObserver.observe(root);
+ on(window,'itcs:dialog-open',stop);
  on(document,'visibilitychange',()=>{if(document.hidden){stop();avatar?.setActive(false)}else avatar?.setActive(active)});
  cases();render();
  return()=>{disposed=true;voice=false;stop();abort.abort();observer.disconnect();sectionObserver.disconnect();avatar?.dispose();audio.removeAttribute('src');audio.load();audioContext?.close().catch(()=>{})};
