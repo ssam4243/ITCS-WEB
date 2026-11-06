@@ -104,4 +104,4 @@ The current below-banner composition is in `src/home-rework.js` and `src/home-re
 
 ## Alison reception preview
 
-The homepage service-detail panel has been replaced with an original animated Alison introduction: perspective door, character entrance/wave, four example conversations, optional device-voice preview and an Alison-specific enquiry route. See [implementation and evidence limits](docs/research/alison-experience.md). Run `npm run test:alison` alongside the existing regression suites. This is a scripted frontend demonstration; it does not make live calls or connect to an AI receptionist backend.
+The homepage service-detail panel has been replaced with an original animated Alison introduction: perspective door, restrained representative entrance, business-name personalisation, four example conversations, optional device-voice preview and an Alison-specific enquiry route. See [implementation and evidence limits](docs/research/alison-experience.md). Run `npm run test:alison` alongside the existing regression suites. This is a scripted frontend demonstration; it does not make live calls or connect to an AI receptionist backend.
