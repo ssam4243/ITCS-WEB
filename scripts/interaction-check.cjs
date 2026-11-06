@@ -50,8 +50,8 @@ const slugs = ['it-support','cyber-security','telecoms','networks','software-web
     await page.mouse.up();
     await page.waitForFunction(x=>Math.abs(document.querySelector('.folder-extracted').getBoundingClientRect().x-x)<1,rest.x);
 
-    for(const [goal,index] of [['reliability',0],['security',1],['connection',2],['digital',4]]){
-      await page.goto(origin.href);await page.locator(`[data-goal="${goal}"]`).click();
+    for(const index of [0,1,2,4]){
+      await page.goto(origin.href);await page.locator(`[data-service-link="${index}"]`).click();
       await page.waitForURL(u=>u.pathname===path('services/'+slugs[index]));
     }
     await page.goto(new URL('services/cyber-security',origin).href);
@@ -106,6 +106,6 @@ const slugs = ['it-support','cyber-security','telecoms','networks','software-web
     await touch.locator('[data-folder-quick="3"]').tap();
     await touch.locator('#engine-link').tap();await touch.waitForURL(u=>u.pathname===path('services/networks'));
     assert.deepEqual(errors,[]);
-    console.log('PASS: six direct card selections without opening the folder, card extractions, drag/spring return, previous/next, four goal journeys, service-to-enquiry navigation, keyboard open/select/return/close, pause state, contextual shortcut, eight widths, mobile touch and reduced motion, no JS errors.');
+    console.log('PASS: six direct card selections without opening the folder, card extractions, drag/spring return, previous/next, four direct service journeys, service-to-enquiry navigation, keyboard open/select/return/close, pause state, contextual shortcut, eight widths, mobile touch and reduced motion, no JS errors.');
   } finally { await browser.close(); }
 })().catch(error=>{console.error(error);process.exit(1);});

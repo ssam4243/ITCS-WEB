@@ -67,3 +67,13 @@ Enlarged the mark from 132 to 190 design pixels and rendered its existing silhou
 ### Dotted default
 
 At the user's request, the folder mark now renders as separated white dots as soon as the source artwork is sampled. Hover displaces the points gently and restores the dotted shape, rather than switching to a solid mark. Touch, paused and reduced-motion modes render the same static dotted mark without animation. The original image remains an accessible loading/error fallback. Verified desktop/mobile default captures, hover return and the updated homepage regression suite.
+
+## Natural homepage refinement — November 2026
+
+The folder remains the opening signature. The rest of the page now follows a clearer reading order: direct service choices, sourced customer quotations, three visible steps for starting a relationship, Alison as an optional interactive discovery, direct sector links, practical FAQs and one closing enquiry route.
+
+IT support, cyber security and telecoms have the strongest visual hierarchy. Secondary services remain directly accessible. Repeated connected-services graphics, the priority chooser, hidden process tabs, the decorative sector simulator and the closing topic picker were removed. The low-resolution decorative photograph was also removed rather than enlarged. No new customer results, testimonials or service guarantees were invented.
+
+Typography, neutral colours, red accents and spacing are consistent across the sections. Customer switching and Alison keep useful interaction; essential service and sector information is available without interaction. Scroll movement is limited to a small, one-time entrance; the parallax and rotated-card entrances are removed. The existing folder and particle-logo interactions are retained.
+
+Validation covers the revised reading order, six service destinations, service-to-enquiry continuity, direct sector routes, visible process content, FAQ expansion, customer controls and touch swipe, eight responsive widths, reduced motion, plus the existing Alison and folder interaction suites. This validates implementation and navigation; conversion improvements require observation with real prospective customers.
