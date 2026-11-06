@@ -37,3 +37,7 @@ Hover animation affects the paper surface and header artwork, not the hit target
 ## Cardboard and paper material pass
 
 Removed the requested front-face caption. The red pocket now uses a masked SVG grain filter, compressed board-edge shadows and a shallow fold crease. The rear board has a warmer fibre edge. Exposed cards use a small procedural SVG paper-grain tile, warm stock colours, reduced corner radii and layered sheet-edge shadows. The extracted service card shares the paper finish. Dotted branding and the existing controls are retained. No raster texture download or additional dependency was required. Inspected resting/extracted browser captures, checked the Pages-base texture URL and passed the folder interaction suite across eight widths, keyboard, touch and reduced motion.
+
+### Cleaner banner and fibrous stock
+
+Removed the three service shortcuts from the hero and the toolbar above the folder. The existing motion preference control moved to the footer, retaining its pause/reduced-motion behaviour. The folder and cards now use deterministic multi-scale pulp textures with individual fibre strokes, a more defined compressed board edge, sharper sheet corners and subtle paper-edge shading. The dot logo and all six directly selectable cards remain. Inspected the full banner and close-up board/extracted-sheet captures; both regression suites passed.

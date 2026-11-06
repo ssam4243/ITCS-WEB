@@ -139,3 +139,16 @@
 .file-paper-art{border-top-color:#6c625718}.file-paper-art>span{height:3px;background:#61595017;border-radius:1px}
 .folder-extracted{background:#faf8f0;border-radius:7px;box-shadow:0 1px 0 #d5cdbc,0 2px 0 #efeadc,0 3px 0 #b9ad97,0 25px 45px #0005,inset 0 1px 0 #fff}
 .folder-extracted:after{content:'';position:absolute;inset:0;border-radius:inherit;background:url('/assets/paper-grain.svg');opacity:.12;mix-blend-mode:multiply;pointer-events:none}
+/* Pressed pulp and thin sheets: soft, slightly uneven edges with no plastic shine. */
+.folder-pocket{box-shadow:0 1px 0 #ba7e61,0 2px 0 #8d5841,0 3px 0 #ae7758,0 4px 0 #58382c,0 7px 10px #0004,0 24px 35px #0005}
+.folder-back:after{background-image:url('/assets/board-fibres.svg');opacity:.48}
+.folder-back{border-radius:0 12px 13px 13px}
+.folder-pocket:after{left:12px;right:12px;bottom:39px;background:#5d152b25;box-shadow:0 -1px 2px #75102018,0 1px 0 #ffc1a71d}
+.folder-module .service-file,.file-surface{border-radius:3px}
+.file-surface:before{opacity:.48;background-size:180px 180px}
+.file-surface{border-color:#fefbf080;box-shadow:0 1px 0 #e2daca,0 2px 0 #c4b9a6,1px 3px 0 #e9e1d2,0 5px 8px #0003,inset 1px 1px 0 #fffff7b3,inset -1px -1px 2px #7f72511a}
+.file-surface:after{inset:0;border-radius:inherit;background:linear-gradient(92deg,#fffefb12,transparent 35%,#a18b6c0c 88%,#fffff130),linear-gradient(178deg,transparent 90%,#b2a0880d);opacity:1}
+.file-select{border-radius:3px 3px 0 0}
+.folder-extracted{border-radius:3px;background:#f9f6eb;box-shadow:0 1px 0 #e8dfcb,0 2px 0 #bcb19c,1px 3px 0 #e8dfcb,0 22px 35px #0005,inset 1px 1px 0 #fffef7,inset -1px -1px 2px #9c896018}
+.folder-extracted:after{opacity:.3;background-size:180px 180px}
+.pocket-plus{background:#ffffff06;border-color:#fff5;box-shadow:inset 0 1px 1px #72162630}
