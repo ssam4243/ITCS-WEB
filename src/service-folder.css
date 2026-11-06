@@ -119,3 +119,23 @@
 /* Dotted by default after sampling; retain the image as a loading/accessibility fallback. */
 .pocket-logo{z-index:2}.pocket-particles{z-index:3}
 .pocket-footer{font-size:9px;color:#fff1f2}.pocket-opening{font-size:14px}
+/* Dyed board outside, uncoated paper inside: matte grain and compressed edges. */
+.folder-pocket{border-radius:19px;box-shadow:0 1px 0 #b96d55,0 3px 0 #67382e,0 7px 9px #0003,0 25px 35px #0005}
+.pocket-opening{justify-content:flex-end}
+.pocket-surface{filter:drop-shadow(0 1px 0 #f57570)}
+.pocket-shine{display:none}
+.folder-pocket:after{content:'';position:absolute;left:18px;right:18px;bottom:39px;height:1px;background:#64121b25;box-shadow:0 1px 0 #ffb0a513;pointer-events:none}
+.folder-back{background:linear-gradient(125deg,#6a3233,#402426);border-color:#a16d57;box-shadow:1px 2px 0 #9a654f,2px 3px 0 #482925,0 24px 65px #0006}
+.folder-back:before{background:#703839;border-color:#a16d57;box-shadow:0 -1px 0 #b08063}
+.folder-back:after{content:'';position:absolute;inset:0;border-radius:inherit;background:url('/assets/paper-grain.svg');opacity:.2;mix-blend-mode:multiply;pointer-events:none}
+.folder-module .service-file{--file-paper:#f7f5ee;border-radius:6px}
+.folder-module .service-file:nth-child(2){--file-paper:#ecece5}.folder-module .service-file:nth-child(3){--file-paper:#e1e5df}.folder-module .service-file:nth-child(4){--file-paper:#f1ece3}.folder-module .service-file:nth-child(5){--file-paper:#e8e1df}.folder-module .service-file:nth-child(6){--file-paper:#f8f5ed}
+.file-surface{border-radius:6px;border:1px solid #fff8;box-shadow:0 1px 0 #d7cfc0,0 2px 0 #e9e4d8,0 3px 0 #c8c1b5,0 5px 9px #0003,inset 0 1px 1px #fff9}
+.file-surface:before{content:'';position:absolute;inset:0;border-radius:inherit;background:url('/assets/paper-grain.svg');opacity:.22;mix-blend-mode:multiply;pointer-events:none}
+.file-surface:after{background:linear-gradient(105deg,#ffffff08,transparent 45%,#b2a18a0b);opacity:1;transition:opacity .25s;border-radius:inherit}
+.service-file.is-hovered .file-surface{border-color:#fff9;box-shadow:0 1px 0 #ddd5c6,0 2px 0 #f0ebdf,0 3px 0 #c8c1b5,0 10px 18px #0004,inset 0 1px 1px #fff9}
+.service-file.is-hovered .file-surface:after{opacity:1}
+.file-select{border-radius:6px 6px 0 0}
+.file-paper-art{border-top-color:#6c625718}.file-paper-art>span{height:3px;background:#61595017;border-radius:1px}
+.folder-extracted{background:#faf8f0;border-radius:7px;box-shadow:0 1px 0 #d5cdbc,0 2px 0 #efeadc,0 3px 0 #b9ad97,0 25px 45px #0005,inset 0 1px 0 #fff}
+.folder-extracted:after{content:'';position:absolute;inset:0;border-radius:inherit;background:url('/assets/paper-grain.svg');opacity:.12;mix-blend-mode:multiply;pointer-events:none}

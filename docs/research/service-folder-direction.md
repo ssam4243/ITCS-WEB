@@ -33,3 +33,7 @@ The enquiry form is still a demonstration. These checks validate interaction beh
 ## Direct-selection polish
 
 Hover animation affects the paper surface and header artwork, not the hit target. Visible body areas delegate selection to the same service action as the native header button. Directional card changes, a material highlight and spring return reinforce the paper metaphor. Browser tests select each of the six services directly from the resting state and exercise both the exposed-paper and larger-tab touch paths.
+
+## Cardboard and paper material pass
+
+Removed the requested front-face caption. The red pocket now uses a masked SVG grain filter, compressed board-edge shadows and a shallow fold crease. The rear board has a warmer fibre edge. Exposed cards use a small procedural SVG paper-grain tile, warm stock colours, reduced corner radii and layered sheet-edge shadows. The extracted service card shares the paper finish. Dotted branding and the existing controls are retained. No raster texture download or additional dependency was required. Inspected resting/extracted browser captures, checked the Pages-base texture URL and passed the folder interaction suite across eight widths, keyboard, touch and reduced motion.
