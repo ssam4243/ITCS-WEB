@@ -59,3 +59,7 @@ The new homepage below the banner is authored in `src/home-rework.js` and `src/h
 The existing banner markup and folder navigation are retained. `src/logo-particles.js` samples the actual ITCS logo into canvas points on folder hover. Pointer proximity displaces the points, which spring back to the original mark; the accessible image remains the fallback. The effect is unavailable for coarse pointers, paused motion and reduced-motion preferences. Rendering stops out of view, on hidden documents and after the return settles. No new dependency was added.
 
 The homepage regression suite was updated for the new composition, including particle readiness/return, pause cleanup, six service selectors, enquiry preselection, process keyboard controls, customer swipe, sector choices, eight widths and touch/reduced-motion use. The existing service-folder suite remains applicable and passes.
+
+### Folder logo visibility correction
+
+Enlarged the mark from 132 to 190 design pixels and rendered its existing silhouette in white against the red pocket. The base image now remains fully visible during particle interaction. A denser white particle overlay adds motion around the readable mark instead of replacing it. Folder headline and footer text were also increased for clarity. Verified static and hovered logo opacity, particle generation, mobile spacing and the homepage regression suite.
