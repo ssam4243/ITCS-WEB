@@ -98,3 +98,7 @@ The current below-banner composition is in `src/home-rework.js` and `src/home-re
 ## Alison business preview
 
 The homepage has an interactive 3D Alison character, optional locally hosted British neural voice, business-name personalisation and twelve guided exchanges across ecommerce, estate agency, IT support, sales and operations. Each example builds a handover brief, with full-transcript and restart controls. See [implementation, asset licenses and evidence limits](docs/research/alison-experience.md). Run `npm run test:alison` alongside the existing regression suites. This is a scripted frontend demonstration; it does not make live calls or connect to an AI receptionist backend.
+
+## Current ITCS source material
+
+The landing page now uses current, company-published customer accounts, a genuine ITCS careers photograph and source-linked certification statements. See [sources, attribution and evidence limits](docs/research/itcs-live-evidence.md). Run `npm run test:evidence` to check the new source panels and responsive presentation.

@@ -10,7 +10,8 @@
     "test:interactions": "node scripts/interaction-check.cjs",
     "test:homepage": "node scripts/homepage-check.cjs",
     "test:alison": "node scripts/alison-check.cjs",
-    "test:landing": "node scripts/landing-check.cjs"
+    "test:landing": "node scripts/landing-check.cjs",
+    "test:evidence": "node scripts/evidence-check.cjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.1",

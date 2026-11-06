@@ -452,7 +452,7 @@ export const industries = [
   },
   {
     "id": "support",
-    "label": "IT & professional services",
+    "label": "IT support",
     "business": "Your service business",
     "intro": "Gather the right detail. Get it to the right people.",
     "cases": [
