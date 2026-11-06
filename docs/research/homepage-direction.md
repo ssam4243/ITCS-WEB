@@ -63,3 +63,7 @@ The homepage regression suite was updated for the new composition, including par
 ### Folder logo visibility correction
 
 Enlarged the mark from 132 to 190 design pixels and rendered its existing silhouette in white against the red pocket. The base image now remains fully visible during particle interaction. A denser white particle overlay adds motion around the readable mark instead of replacing it. Folder headline and footer text were also increased for clarity. Verified static and hovered logo opacity, particle generation, mobile spacing and the homepage regression suite.
+
+### Dotted default
+
+At the user's request, the folder mark now renders as separated white dots as soon as the source artwork is sampled. Hover displaces the points gently and restores the dotted shape, rather than switching to a solid mark. Touch, paused and reduced-motion modes render the same static dotted mark without animation. The original image remains an accessible loading/error fallback. Verified desktop/mobile default captures, hover return and the updated homepage regression suite.
