@@ -3,7 +3,7 @@ Alison virtual receptionist concept assets
 Character and source animation: Microsoft Rocketbox Avatar Library
 Copyright (c) 2020 Microsoft. MIT License (MODEL-LICENSE.txt).
 https://github.com/microsoft/Microsoft-Rocketbox
-Business_Female_01; relaxed neutral source motion; optimized/retargeted for this demo.
+Business_Female_04; relaxed neutral source motion; optimized/retargeted for this demo.
 
 Demo speech: generated with Kokoro-82M v1.0 ONNX, bf_emma voice preset.
 Apache-2.0 model (VOICE-LICENSE.txt).

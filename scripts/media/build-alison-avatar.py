@@ -7,7 +7,7 @@ source_dir=Path(args[0]).resolve()
 output_file=Path(args[1]).resolve()
 from mathutils import Vector
 bpy.ops.wm.read_factory_settings(use_empty=True)
-bpy.ops.import_scene.fbx(filepath=str(source_dir/'Business_Female_01_facial.fbx'))
+bpy.ops.import_scene.fbx(filepath=str(next(source_dir.glob('Business_Female_*_facial.fbx'))))
 rig=next(o for o in bpy.data.objects if o.type=='ARMATURE')
 mesh=next(o for o in bpy.data.objects if o.type=='MESH')
 keep=['AK_09_EyeBlinkLeft','AK_10_EyeBlinkRight','AK_25_JawOpen','AK_44_MouthSmileLeft','AK_45_MouthSmileRight','AA_VI_13_O','AA_VI_11_E']
