@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import { Draggable } from 'gsap/Draggable';
 import './service-folder.css';
+import {initLogoParticles} from './logo-particles.js';
 
 gsap.registerPlugin(Draggable);
 
@@ -29,6 +30,7 @@ export function initServiceFolder(services, base, { reduced = false } = {}) {
   let extractionTween;
   let drag;
   const context = gsap.context(() => {});
+  const disposeLogoParticles=initLogoParticles({reduced});
   const duration = reduced ? 0 : .7;
   const canDrag = !reduced && matchMedia('(pointer: fine)').matches;
   module.classList.toggle('folder-no-drag', !canDrag);
@@ -173,5 +175,5 @@ export function initServiceFolder(services, base, { reduced = false } = {}) {
   if (state==='selected') choose(selected,false);
   else if(state==='open')openFolder(false);
   else {setState('closed');poseCards(false,false);}
-  return ()=>{abort.abort();resize.disconnect();extractionTween?.kill();drag?.kill();gsap.killTweensOf([...cards,...surfaces,...headers,pocket,extracted]);context.revert();};
+  return ()=>{disposeLogoParticles();abort.abort();resize.disconnect();extractionTween?.kill();drag?.kill();gsap.killTweensOf([...cards,...surfaces,...headers,pocket,extracted]);context.revert();};
 }

@@ -97,3 +97,7 @@ Direct selection: all six desktop papers are exposed and selectable immediately,
 The folder remains the homepage's signature. Below it, customer references lead into an interactive business-scenario workbench, a capability-rich service explorer, expandable people principles, customer quotation tabs, sector context, FAQs and the closing invitation. See [homepage research and implementation rationale](docs/research/homepage-direction.md). No new runtime dependencies were added.
 
 Run `npm run test:homepage` against a running dev or production-preview server, using the same `ITCS_TEST_URL` and optional `PLAYWRIGHT_EXECUTABLE_PATH` variables as the interaction checks. It verifies scenario/customer tab controls, sector hover/focus, accordions, enquiry context, responsive widths and motion preferences. Customer quotations are attributed to archived material; scenarios are illustrative.
+
+## Current homepage rework
+
+The current below-banner composition is in `src/home-rework.js` and `src/home-rework.css`, following the user's WebCastle reference. The folder banner stays in place; `src/logo-particles.js` adds a pointer-responsive particle treatment to its existing ITCS logo, with a static accessible fallback and motion-preference support. See the latest entry in [homepage direction](docs/research/homepage-direction.md). Run both homepage and folder interaction suites against a running server.
