@@ -30,6 +30,7 @@ export function initMotion(services, base) {
         gsap.timeline({ defaults: { ease: 'power3.out' } })
           .from('.hero-kicker', { opacity: 0, y: 15, duration: .6 })
           .from('.hero-char', { yPercent: 115, rotation: 6, opacity: 0, duration: .85, stagger: .023 }, '-=.3')
+          .from('.hero-connection-stroke path', {strokeDashoffset:520,duration:.65,stagger:.12}, '-=.3')
           .from('.hero-description, .hero-core-services, .hero-actions, .hero-footnote', { opacity: 0, y: 20, stagger: .1, duration: .6 }, '-=.5')
           .from('.folder-module', { opacity: 0, y: 25, duration: .8 }, '-=.7');
       } else {

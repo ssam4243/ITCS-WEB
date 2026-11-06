@@ -33,3 +33,11 @@ Motion is limited to entry, signal drawing and explicit selection transitions. N
 ## Verification
 
 `npm run test:interactions` covers the existing folder and enquiry journeys. `npm run test:homepage` covers new scenario/customer keyboard tabs, sector hover and focus, people accordions, service capabilities and enquiry preselection, eight responsive widths, motion pause and reduced-motion touch input. Production builds use `/ITCS-WEB/` as the GitHub Pages base. Desktop and mobile section captures were visually inspected. Conversion impact requires real analytics and testing after launch.
+
+## HeyHiHello reference — 6 November 2026
+
+Reviewed https://heyhihello.com/ in a rendered Chromium desktop session (HTTP 200). Ordinary non-browser requests returned 403, so the rendered page was used as the source. Captured the opening view and read the homepage's service, sector, case study and FAQ content.
+
+Observed a large conversational proposition, a bright rounded hero surface, restrained hand-drawn emphasis, a customer quotation close to the opening action, three plainly explained practices, and sector-specific context. Adopted the principles of approachable language, visible customer proof and softer section transitions for ITCS. The ITCS logo, existing red/charcoal palette, direct-selection service folder, service priorities and working enquiry journeys remain the design foundation. No HeyHiHello assets, testimonials, business metrics or agency offerings were reused.
+
+The experimental pass adds a drawn connection stroke to the hero, brings an existing attributed Sony customer quotation into the opening reference strip, makes the service heading explicit, rounds the main alternating section surfaces, and softens selected CTA shapes. Drawing respects reduced motion and the existing pause control. Existing archived-source attribution is retained. Responsive and interaction regression checks accompany this pass; no conversion improvement is claimed without user data.

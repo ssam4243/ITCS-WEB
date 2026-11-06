@@ -55,3 +55,31 @@
 .customer-choice img[alt="Sony Global Manufacturing"]{max-height:50px;margin-block:-12px}
 .home-page .trust img[alt="Sony UK Technology Centre"]{max-height:65px}
 @media(max-width:800px){.customer-choice img[alt="Sony Global Manufacturing"]{max-height:40px;margin-block:-8px}.home-page .trust img[alt="Sony UK Technology Centre"]{max-height:45px}}
+/* HeyHiHello reference pass: approachable voice, confident type and softer section edges. */
+.home-page .hero-line em{position:relative;display:inline-block}
+.hero-connection-stroke{position:absolute;left:1%;bottom:-5px;width:98%;height:24px;pointer-events:none;overflow:visible}
+.hero-connection-stroke path{stroke:#e85d64;stroke-width:2;stroke-linecap:round;stroke-dasharray:520;stroke-dashoffset:0;opacity:.65}
+.home-page .hero-description{margin-top:7px}
+.home-page .hero-actions .button,.home-page .header-inner nav>.button{border-radius:40px}
+.home-page .hero-actions .button{padding-inline:25px;gap:32px}
+.home-page .trust{min-height:150px;gap:35px}
+.trust-perspective{max-width:360px;flex:1.5;min-width:0;padding-block:15px}
+.trust-perspective blockquote{margin:0;font-size:13px;line-height:1.8;letter-spacing:-.02em;color:#403a44}
+.trust-perspective>span{display:flex;align-items:center;gap:11px;font-size:8px;line-height:1.8;color:#827987;margin-top:10px}
+.trust-perspective .arrow-icon{width:12px;height:12px;color:var(--red);flex-shrink:0}
+.trust-perspective:hover blockquote{color:#bc202c}
+.home-page .expertise-lab,.home-page .customer-section{margin-inline:16px;border-radius:30px}
+.home-page .expertise-lab .wrap,.home-page .customer-section .wrap{width:min(1280px,calc(100% - 64px))}
+.home-page .expertise-lab .section-heading h2{font-size:clamp(40px,4.8vw,70px);line-height:1.1}
+.home-page .expertise-option{transition:color .2s}
+.home-page .expertise-option:not(.active):hover{color:#28222e}
+.home-page .expertise-option:not(.active):hover:before{opacity:.5}
+.home-page .panel-content .button,.home-page .difference-copy .button{border-radius:28px}
+.home-page .closing .button{border-radius:40px}
+.home-page .customer-feature blockquote{font-weight:400}
+@media(min-width:1500px){.home-page .expertise-lab .wrap,.home-page .customer-section .wrap{width:min(1280px,calc(100% - 96px))}}
+@media(max-width:1100px){.home-page .trust{gap:25px}.trust-perspective{max-width:290px}.trust-perspective blockquote{font-size:11px}.home-page .expertise-lab .wrap,.home-page .customer-section .wrap{width:calc(100% - 44px)}}
+@media(max-width:800px){.home-page .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;justify-items:center;padding-block:28px}.trust-perspective{grid-column:1/-1;max-width:490px;width:100%;padding-block:0;text-align:center}.trust-perspective blockquote{font-size:13px}.trust-perspective>span{justify-content:center;font-size:9px}.home-page .trust img{margin:auto}.home-page .expertise-lab,.home-page .customer-section{margin-inline:10px;border-radius:23px}.home-page .expertise-lab .wrap,.home-page .customer-section .wrap{width:calc(100% - 36px)}.home-page .expertise-lab .section-heading h2{font-size:43px}.hero-connection-stroke{height:18px;bottom:-4px}}
+@media(max-width:480px){.home-page .trust{padding-block:26px;gap:20px}.trust-perspective blockquote{font-size:12px;line-height:1.8;max-width:320px;margin-inline:auto}.trust-perspective>span{font-size:8px}.home-page .expertise-lab,.home-page .customer-section{margin-inline:8px;border-radius:20px}.home-page .expertise-lab .wrap,.home-page .customer-section .wrap{width:calc(100% - 28px)}.home-page .expertise-lab .section-heading h2{font-size:36px}.home-page .hero-actions .button{padding-inline:20px;gap:24px}}
+@media(max-width:360px){.home-page .expertise-lab .section-heading h2{font-size:32px}.trust-perspective blockquote{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.home-page .expertise-option{transition:none}}
