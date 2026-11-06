@@ -1,4 +1,4 @@
-Alison virtual receptionist concept assets
+Alison connected business assistant concept assets
 
 Character and source animation: Microsoft Rocketbox Avatar Library
 Copyright (c) 2020 Microsoft. MIT License (MODEL-LICENSE.txt).

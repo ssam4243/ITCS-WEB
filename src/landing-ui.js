@@ -11,7 +11,7 @@ export function initLandingUI({services,stories,base}){
  function scroll(id){closeNav();const el=document.querySelector(id);if(!el)return;el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches||sessionStorage.getItem('itcs-motion')==='paused'?'instant':'smooth',block:'start'});el.setAttribute('tabindex','-1');el.focus({preventScroll:true})}
  function openEnquiry(service=''){
   detail.close();const f=enquiry.querySelector('form');f.reset();f.elements.service.value=service;f.elements.company.value='';f.querySelector('#form-result').replaceChildren();f.querySelector('#form-result').className='';
-  if(service==='alison'){try{f.elements.company.value=sessionStorage.getItem('itcs-alison-business')||''}catch{}f.elements.message.value='I’d like to explore Alison for my business.'}
+  if(service==='alison'){try{f.elements.company.value=sessionStorage.getItem('itcs-alison-business')||''}catch{}f.elements.message.value='I’d like to explore Alison across support, sales and routine workflows for my business.'}
   enquiry.querySelector('form h2').textContent=service==='alison'?'Let’s talk about Alison.':services.find(s=>s.slug===service)?'Let’s talk about '+services.find(s=>s.slug===service).short.toLowerCase()+'.':'Tell us a little about your business.';
   closeNav();if(!enquiry.open)enquiry.showModal();window.dispatchEvent(new Event('itcs:dialog-open'));
  }

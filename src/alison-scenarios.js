@@ -1,4 +1,4 @@
-// Scripted call scenarios. Outcomes are held locally; no external action is performed.
+// Scripted business scenarios. No connected system is accessed by this preview.
 export const industries = [
   {
     "id": "shop",
@@ -9,11 +9,11 @@ export const industries = [
       {
         "id": "tracking",
         "label": "Track an order",
-        "context": "A customer calls about an overdue delivery.",
+        "context": "A customer asks where their delivery is, through your website chat.",
         "summary": "Delivery update request",
         "steps": [
           {
-            "reply": "Hello, I’m Alison. Thanks for calling. I can help you find out where your delivery is. Could I take your order reference first, please? You’ll usually find it at the top of your confirmation email.",
+            "reply": "Hello, I’m Alison. I can help you find out where your delivery is. Could you share your order reference, please? You’ll usually find it at the top of your confirmation email.",
             "options": [
               "My reference is HH-1042."
             ],
@@ -71,6 +71,12 @@ export const industries = [
               ]
             ]
           }
+        ],
+        "channel": "chat",
+        "systems": [
+          "Orders",
+          "Customer records",
+          "Delivery updates"
         ]
       },
       {
@@ -138,6 +144,12 @@ export const industries = [
               ]
             ]
           }
+        ],
+        "channel": "voice",
+        "systems": [
+          "Orders",
+          "Customer records",
+          "Delivery updates"
         ]
       },
       {
@@ -206,6 +218,12 @@ export const industries = [
               ]
             ]
           }
+        ],
+        "channel": "voice",
+        "systems": [
+          "Orders",
+          "Customer records",
+          "Delivery updates"
         ]
       }
     ]
@@ -282,16 +300,22 @@ export const industries = [
               ]
             ]
           }
+        ],
+        "channel": "voice",
+        "systems": [
+          "Property enquiries",
+          "Customer records",
+          "Diary"
         ]
       },
       {
         "id": "valuation",
         "label": "Request a valuation",
-        "context": "Turn a new seller enquiry into a useful brief for the agent.",
+        "context": "A website visitor is considering selling or letting a property.",
         "summary": "Valuation lead",
         "steps": [
           {
-            "reply": "Hello, I’m Alison. Thanks for calling. Are you thinking about selling your property, or are you looking for a rental valuation? I can take a few details and help get you to the right person.",
+            "reply": "Hello, I’m Alison. Are you thinking about selling your property, or are you looking for a rental valuation? I can take a few details and help get you to the right person.",
             "options": [
               "I’m considering selling.",
               "I’d like a rental valuation."
@@ -347,6 +371,12 @@ export const industries = [
               ]
             ]
           }
+        ],
+        "channel": "chat",
+        "systems": [
+          "Property enquiries",
+          "Customer records",
+          "Diary"
         ]
       },
       {
@@ -410,6 +440,12 @@ export const industries = [
               ]
             ]
           }
+        ],
+        "channel": "voice",
+        "systems": [
+          "Property enquiries",
+          "Customer records",
+          "Diary"
         ]
       }
     ]
@@ -423,11 +459,11 @@ export const industries = [
       {
         "id": "it-issue",
         "label": "Log an IT issue",
-        "context": "An office caller needs help with an everyday IT problem.",
+        "context": "A colleague asks for help through your support chat.",
         "summary": "Support intake",
         "steps": [
           {
-            "reply": "Hello, I’m Alison. Thanks for calling. Tell me what’s happening and I’ll take the details for the support team. You won’t need to share any passwords with me.",
+            "reply": "Hello, I’m Alison. Tell me what’s happening and I’ll take the details for the support team. You won’t need to share any passwords with me.",
             "options": [
               "Our office printer is unavailable."
             ],
@@ -486,6 +522,12 @@ export const industries = [
               ]
             ]
           }
+        ],
+        "channel": "chat",
+        "systems": [
+          "Help desk",
+          "Knowledge base",
+          "Customer records"
         ]
       },
       {
@@ -550,12 +592,18 @@ export const industries = [
               ]
             ]
           }
+        ],
+        "channel": "voice",
+        "systems": [
+          "Help desk",
+          "Knowledge base",
+          "Customer records"
         ]
       },
       {
         "id": "new-starter",
         "label": "Prepare a new starter",
-        "context": "Collect a clear brief before the team provisions access.",
+        "context": "A manager needs to prepare equipment and access for a new colleague.",
         "summary": "New starter brief",
         "steps": [
           {
@@ -614,6 +662,239 @@ export const industries = [
               [
                 "Status",
                 "Requirements brief prepared"
+              ]
+            ]
+          }
+        ],
+        "channel": "workflow",
+        "systems": [
+          "Help desk",
+          "Knowledge base",
+          "Customer records"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "operations",
+    "label": "Sales & operations",
+    "business": "Your business",
+    "intro": "Turn an enquiry, a review or a recurring task into a clear next step.",
+    "cases": [
+      {
+        "id": "sales-enquiry",
+        "label": "Qualify an enquiry",
+        "channel": "chat",
+        "systems": [
+          "CRM",
+          "Product information",
+          "Sales calendar"
+        ],
+        "context": "A prospective customer asks about a service through your website.",
+        "summary": "Qualified sales enquiry",
+        "steps": [
+          {
+            "reply": "Hello, I’m Alison. Thanks for getting in touch. Tell me a little about what you’re looking for, and I’ll help you find the right next step. Are you exploring something new or looking to improve what you already have?",
+            "options": [
+              "We need better business phones for two offices."
+            ],
+            "facts": [
+              [
+                "Enquiry",
+                "Business communications"
+              ]
+            ]
+          },
+          {
+            "reply": "Of course. Roughly how many people would need to use the phones across the two offices? It also helps to know whether you’d like to keep your existing numbers. That gives the sales team something useful to work with before they speak to you.",
+            "options": [
+              "Around twenty people, keeping our numbers."
+            ],
+            "facts": [
+              [
+                "Locations",
+                "Two offices"
+              ],
+              [
+                "Need",
+                "Business phones"
+              ]
+            ]
+          },
+          {
+            "reply": "Thank you. Are you working towards a particular date, or are you comparing options at the moment? I can keep that with your requirements so the conversation is about what suits your business, rather than starting with a generic list of products.",
+            "options": [
+              "We’re comparing options for the next three months.",
+              "We’d like to speak to someone this week."
+            ],
+            "facts": [
+              [
+                "Users",
+                "Around twenty"
+              ],
+              [
+                "Numbers",
+                "Keep existing numbers"
+              ]
+            ]
+          },
+          {
+            "reply": "Lovely, the sales team now has a clear brief: two offices, the approximate number of people, your existing numbers and your timing. They can focus on the right options when they speak with you. There’s no need for you to repeat the whole enquiry from the beginning.",
+            "options": [],
+            "facts": [
+              [
+                "Handover",
+                "Sales team"
+              ],
+              [
+                "Status",
+                "Enquiry brief prepared"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": "compliance-review",
+        "label": "Prepare a review",
+        "channel": "workflow",
+        "systems": [
+          "Document library",
+          "Review checklist",
+          "Assigned reviewers"
+        ],
+        "context": "Your team needs to gather information for a customer compliance questionnaire.",
+        "summary": "Compliance review pack",
+        "steps": [
+          {
+            "reply": "Hello, I’m Alison. I can help put the information together for your review. Are you responding to a customer questionnaire, or preparing for an internal check? We can start with what’s already available and identify what still needs attention.",
+            "options": [
+              "A customer has sent us a security questionnaire."
+            ],
+            "facts": [
+              [
+                "Task",
+                "Customer security questionnaire"
+              ]
+            ]
+          },
+          {
+            "reply": "Understood. Which documents do you already have available? I can organise the relevant information and highlight gaps, rather than asking your team to search through everything again. Please use the document choices below to get started.",
+            "options": [
+              "Our access policy and business continuity plan."
+            ],
+            "facts": [
+              [
+                "Documents",
+                "Access policy and continuity plan"
+              ],
+              [
+                "Source",
+                "Business document library"
+              ]
+            ]
+          },
+          {
+            "reply": "Thank you. Who should review the answers before they go back to the customer? I can keep the supporting documents, unanswered questions and review owner together. Any interpretation or approval should stay with the person responsible for compliance.",
+            "options": [
+              "Our compliance lead should review the answers.",
+              "Our security manager should review them."
+            ],
+            "facts": [
+              [
+                "Action",
+                "Identify gaps and supporting evidence"
+              ],
+              [
+                "Approval",
+                "Specialist review required"
+              ]
+            ]
+          },
+          {
+            "reply": "That gives us a clear review pack: the questionnaire, the available documents, any gaps and the person responsible for checking it. Your specialist can concentrate on the decisions and approvals, with the information already organised. Nothing needs to be treated as approved simply because it has been collected.",
+            "options": [],
+            "facts": [
+              [
+                "Handover",
+                "Named specialist reviewer"
+              ],
+              [
+                "Status",
+                "Review pack prepared"
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": "routine-summary",
+        "label": "Organise routine work",
+        "channel": "workflow",
+        "systems": [
+          "Help desk",
+          "Customer records",
+          "Reporting workflow"
+        ],
+        "context": "Your operations team wants a consistent summary of work that needs attention.",
+        "summary": "Recurring workflow brief",
+        "steps": [
+          {
+            "reply": "Hello, I’m Alison. Let’s look at the routine work your team keeps coming back to. Is it gathering updates, chasing information or preparing a regular summary? Tell me where the repetition is, and we can work through the useful details.",
+            "options": [
+              "We prepare the same support summary every week."
+            ],
+            "facts": [
+              [
+                "Task",
+                "Weekly support summary"
+              ]
+            ]
+          },
+          {
+            "reply": "Understood. Who uses that summary, and which information matters most to them? A useful overview should help someone decide what needs attention, rather than simply give them another long list to read.",
+            "options": [
+              "Our operations manager needs open issues and owners."
+            ],
+            "facts": [
+              [
+                "Audience",
+                "Operations manager"
+              ],
+              [
+                "Source",
+                "Help desk and customer records"
+              ]
+            ]
+          },
+          {
+            "reply": "Of course. Would it be most useful to group the outstanding issues by priority, or show completed work alongside the follow-ups? We can keep the structure consistent so your manager can quickly spot what has changed.",
+            "options": [
+              "Group open issues by priority and owner.",
+              "Show completed work and outstanding follow-ups."
+            ],
+            "facts": [
+              [
+                "Workflow",
+                "Agreed recurring summary"
+              ],
+              [
+                "Action",
+                "Confirm reporting format"
+              ]
+            ]
+          },
+          {
+            "reply": "That gives us a practical brief: the information to gather, who needs it and how they want to see it. The routine preparation can follow the agreed process, while decisions and exceptions stay with your team. It’s a clearer way to keep everyone informed without starting the same task from scratch each time.",
+            "options": [],
+            "facts": [
+              [
+                "Handover",
+                "Operations manager"
+              ],
+              [
+                "Status",
+                "Recurring workflow brief prepared"
               ]
             ]
           }
